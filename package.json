@@ -1,0 +1,29 @@
+{
+  "name": "lambda-contact-us",
+  "version": "1.0.0",
+  "description": "Send contact-us emails easily with this micro-service using an AWS Lambda and the Serverless framework.",
+  "scripts": {
+    "test": "eslint ./src && mocha tests/index.js",
+    "lint": "eslint ./src",
+    "build": "babel src --out-dir dist",
+    "start": "babel src --out-dir dist &&  sls offline start --skipCacheInvalidation",
+    "deploy": "babel src --out-dir dist &&  sls deploy -v",
+    "precommit": "npm run test",
+    "commitmsg": "validate-commit-msg"
+  },
+  "author": "Gage Langdon <gagelangdon@gmail.com> (http://gage-langdon.com)",
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "nodemailer": "^4.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.7.2",
+    "eslint-plugin-filenames": "^1.2.0",
+    "husky": "^0.14.3",
+    "mocha": "^3.4.2",
+    "serverless-offline": "^3.16.0",
+    "validate-commit-msg": "^2.14.0"
+  }
+}

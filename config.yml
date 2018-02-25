@@ -1,0 +1,4 @@
+emailProvider: gmail
+username: someEmail@yourSite.com
+password: someSuperSecretPassword
+receivingEmail: contact-us@yourSite.com

@@ -1,0 +1,17 @@
+service: contact-us
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-west-2
+  environment: ${file(./config.yml)}
+plugins:
+  - serverless-offline
+functions:
+  sendContact:
+    handler: dist/handler.sendContact
+    description: send contact information for contact us form
+    events:
+      - http:
+          path: sendContact
+          method: post
+          cors: true
