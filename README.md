@@ -8,7 +8,7 @@ Send contact-us emails easily with this micro-service using an AWS Lambda and th
  1. Pull down project
  2. Configure email credentials in config.yml
  3. Install dependencies (`npm install`)
- 4. deploy (`npm run deploy`)
+ 4. Deploy (`npm run deploy`)
  
 ### API Documentation
  ```
