@@ -6,9 +6,11 @@ const sendEmail = function (
   text,
   { from = "contact us", to, cc }
 ) {
+  console.log("EMAIL USERNAME : ", process.env.username)
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
-      service: process.env.emailProvider,
+      host: 'mail.privateemail.com',
+      port: 465,
       auth: {
         user: process.env.username,
         pass: process.env.password

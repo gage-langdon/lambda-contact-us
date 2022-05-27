@@ -7,6 +7,7 @@ const { sendEmail } = require("./services/email");
 module.exports.sendContact = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const res = Response(callback);
+
   try {
     const { name, email, subject, message, phone, job } = JSON.parse(event.body);
     if (!name || !email || !subject || !message)
@@ -27,12 +28,12 @@ module.exports.sendContact = async (event, context, callback) => {
       `;
       const text = `name: ${name} \n email: ${email} \n phone: ${phone} \n subject: ${subject} \n message: ${message} \n`;
       await sendEmail(`Contact Us Revampr - ${subject}`, html, text, {
-        from: "Contact Us",
+        from: `${name} <${process.env.receivingEmail}>`,
         to: process.env.receivingEmail
       });
       res.send({ success: true });
     }
   } catch (e) {
-    res.error("Failed to send message");
+    res.error(e);
   }
 };

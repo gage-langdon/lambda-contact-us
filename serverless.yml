@@ -1,17 +1,22 @@
+org: abdennour
+app: contac-us
 service: contact-us
+frameworkVersion: '3'
 provider:
   name: aws
-  runtime: nodejs6.10
+  stage: local
+  runtime: nodejs14.x
   region: us-west-2
-  environment: ${file(./config.yml)}
+
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 functions:
   sendContact:
-    handler: dist/handler.sendContact
+    handler: src/handler.sendContact
     description: send contact information for contact us form
     events:
-      - http:
-          path: sendContact
-          method: post
-          cors: true
+      - httpApi:
+          path: /v1/contactus
+          method: POST
+          # cors: true

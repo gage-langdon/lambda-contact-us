@@ -14,7 +14,7 @@
   "author": "Gage Langdon <gagelangdon@gmail.com> (http://gage-langdon.com)",
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "nodemailer": "^4.4.1"
+    "nodemailer": "^6.7.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -23,7 +23,8 @@
     "eslint-plugin-filenames": "^1.2.0",
     "husky": "^0.14.3",
     "mocha": "^3.4.2",
-    "serverless-offline": "^3.16.0",
+    "serverless-dotenv-plugin": "^3.12.2",
+    "serverless-offline": "^8.8.0",
     "validate-commit-msg": "^2.14.0"
   }
 }

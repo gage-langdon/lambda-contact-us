@@ -22,7 +22,7 @@ module.exports = {
 	"rules": {
 		"indent": [
 			"error",
-			"tab",
+			"space",
 			{ "SwitchCase": 1 }
 		],
 		"linebreak-style": [

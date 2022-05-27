@@ -20,7 +20,7 @@ module.exports = callback => ({
   },
   error: e => {
     if (typeof e === "string") e = { message: e };
-    if (!e.isDVError) e.message = "Oops! Something went wrong!";
+   // if (!e.isDVError) e.message = "Oops! Something went wrong!";
     const res = {
       headers: HEADERS,
       statusCode: e.statusCode || 400,
