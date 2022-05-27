@@ -8,23 +8,25 @@ module.exports.sendContact = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const res = Response(callback);
   try {
-    const { name, email, message } = JSON.parse(event.body);
-    if (!name || !email || !message)
-      res.error("Must send name, email, and message");
+    const { name, email, subject, message, phone, job } = JSON.parse(event.body);
+    if (!name || !email || !subject || !message)
+      res.error("Must send name, email, subject and message");
     else {
       const html = `
         <html>
         <body>
             <p><b>Name: </b><span>${name}</span></p>
+            <p><b>Phone: </b><span>${phone}</span></p>
             <p><b>Email: </b><span>${email}</span></p>
+            <p><b>Job: </b><span>${job}</span></p>
             <br />
             <p><b>Message: </b><span>${message}</span></p>
            
         </body>
         </html>
       `;
-      const text = `name: ${name} \n email: ${email} \n message: ${message} \n`;
-      await sendEmail("Contact request", html, text, {
+      const text = `name: ${name} \n email: ${email} \n phone: ${phone} \n subject: ${subject} \n message: ${message} \n`;
+      await sendEmail(`Contact Us Revampr - ${subject}`, html, text, {
         from: "Contact Us",
         to: process.env.receivingEmail
       });
